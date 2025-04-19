@@ -1,0 +1,119 @@
+# CONTACT
+SAI ARUN MUNAGANTI
+arunsai63@gmail.com
+linkedin.com/in/arunmunaganti
+github.com/arunsai63
+6 star Hackerrank
+
+
+# KEY ACHIEVEMENTS
+
+Founding team member
+Built core workflows and ops from scratch, owning and scaling projects with a combined market cap of tens of millions of dollars
+
+# SUMMARY
+
+Currently Leading the Engineering Team Echor Tech.
+AWS Expert. Architected scalable Backend and cloud native solutions with enhanced focus on security.
+Launched crypto projects achieving $50M market cap and thousands of active users.
+Optimised cloud infrastructure, reducing server costs while supporting tens of thousands of active users.
+Implemented full DevOps workflows CI/CD, Docker, IAAC across AWS and other clouds.
+Managed complete migration from monolithic to microservices architecture.
+Established engineering processes, trained teams, and scaled engineering headcount by 10x.
+Led stakeholder technical discussions, consistently delivering beyond expectations.
+
+# COURSES
+
+AWS Solution Architect Certification
+Worked on AWS SAAC03 certification
+
+
+
+# Experience
+
+
+SOLUTIONS ARCHITECT
+
+6+ YOE ( FULL STACK | AWS | DEVOPS | BLOCKCHAIN )
+
+Echor Tech 09/2024 - Present
+Solution Architect
+
+- A Broad-Scoped Tech Generalist specializing in Architecting Scalable Backend Solutions primarily on AWS.
+- Building and Leading a VC backed Decentralized Creator Monetization Platform disrupting a $4B industry with a projected 200k initial userbase
+- Leading technical initiatives as the primary go-to expert across a broad range of technologies frontend, backend, mobile apps, databases, and Cloud.
+- Heading all DevOps and Backend operations, ensuring infrastructure efficiency, security and scalability.
+- Explored and implemented open‑source solutions as alternatives to third‑party services like osm, shkeeper, supabase etc, saving tens of thousands of dollars while maintaining performance and reliability.
+Tech: Kafka, Python, NestJS, AWS, ECS, Fargate, FastApi, Cloudformation IaC, Docker, Linux, React, NodeJS, New Relic
+
+Echor Tech 01/2023 - 09/2024
+Software Engineer 3
+
+- Successfully built and scaled three high‑impact crypto projects from scratch to thousands of active users, listed on platforms including OpenSea, MEXC, HTX exchanges and popular decentralised exchanges DEXs.
+- Built, owned and managed these crypto projects end‑to‑end, collectively achieving an estimated market cap of $50 Million.
+- Built and owned landwey.in, scaling seamlessly to 30k+ users and thousands of listed properties and significantly optimised infrastructure achieving very low server costs without compromising scalability.
+Tech: Solidity, Python, AWS, Node, Redis, NextJs, React, Rust, Github Actions, Linux, Dex, Docker, Web3, Svelte, Monitoring
+AWS Tech: Amplify, S3, Dynamodb, DocumentDb, Aurora, VPC, SQS, ECS, Auto Scaling, IAM, Cloudformation, RDS, CodeBuild, WAF, EC2, Lambda
+
+Echor Tech 12/2021 - 01/2023
+Lead Developer
+
+- Led end‑to‑end development of an advanced trading automation platform featuring copy trading, screener, realtime market tracking, backtesting, custom payment gateway and complex referral systems.
+- Built a multi‑media content marketing platform with crypto incentives and integrated AI/ML, getting offers from multiple VC firms.
+- Built scalable backend systems for real‑time apps involving payment gateways, proprietary algorithms and complex business logic.
+- Established core tech workflows Jira, GitHub and managed technical hiring and training.
+Tech: Rabbit MQ, Python, Flask, Node, Express, Mongodb, Postgres, Linux, Docker, Cloud Native, Serverless, Lambda, AWS, React, Solidity, Web3
+
+Grow Indigo Pvt. Ltd. 04/2021 - 12/2021
+Software Development Engineer
+growindigo.co.in
+
+- Complete migration of internal dashboards from ASP.NET to React and .NET Core microservices
+- Migrated all the services from on‑prem to AWS along with CI/CD setup involving several microservices (10) with minimal downtime.
+- Identified and fixed critical security vulnerabilities and implemented proper IAM service for all the microservices
+- Built and owned a referral and offers microservice
+- Scaled the application to tens of thousands of users
+Tech: .NET Core, C#, AWS, Mongodb, Mysql, Microservices, Security, Python, TypeScript, React
+
+GGK Tech 08/2020 - 04/2021
+Software Engineer
+physioage.com
+
+- Worked as a full stack developer using .NET Core, React, Mysql and Redis
+- Worked on Azure CI/CD, deployments, serverless, multi‑environment setup
+- Improved the application load times significantly (query optimisation and cache) handling 100k+ users
+Tech: C#, Azure, Serverless, .NET Core, React, Mysql, Redis, Azure Service Bus, Unit tests, Python, SQL Server
+
+GGK Tech 01/2019 - 08/2020
+Associate Software Engineer
+fideliscare.org, pronto‑delivery.com
+
+- Worked as a full stack developer using .NET Core, React, Oracle
+- Worked on one of the largest migration projects (worth $10M) migrated complete DB and several .NET projects
+- Built and owned an internal employee management system involving complex hierarchy having 10k+ users
+Tech: React, C#, .NET, Oracle, Sybase, Python
+
+EDUCATION
+
+JNTUH College of Engineering Hyderabad
+Bachelor’s Degree, Computer Science and Engineering
+
+Member of FOSS Club (swecha.org)
+Major Project: Handwritten Character Recognition System KNN, Python
+
+VOLUNTEERING
+
+Swecha.org - Python Teacher (2018 - Present)
+Working as a volunteer teacher for Python
+
+Open Source Contributor (2018 - Present)
+Contributed to open source projects and built several open source projects of my own.
+
+SKILLS
+
+Python  Node  Rust  C#
+AWS  DevOps  React
+Blockchain  Quant  LLM
+
+arunsai63.github.io
+
