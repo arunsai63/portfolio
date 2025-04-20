@@ -1,1 +1,73 @@
 @import "tailwindcss";
+
+:root {
+    --primary-color: #00ff00;
+    --secondary-color: #31b831;
+    --text-color: #e0e0e0;
+    --background-color: #0a0a0a;
+    --card-background: rgba(20, 20, 20, 0.8);
+    --accent-color: #ffffff;
+    --border-color: #333;
+    --shadow-color: rgba(0, 255, 110, 0.5);
+    --muted-text-color: #cccccc;
+    --highlight-color: #444;
+    --terminal-green: #00ff00;
+}
+
+body {
+    font-family: monospace;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Terminal cursor animation */
+.cursor-blink::after {
+    content: '|';
+    color: var(--primary-color);
+    animation: blink 1s step-end infinite;
+    display: inline-block;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Terminal line effect */
+.terminal-line {
+    position: relative;
+    padding-left: 20px;
+}
+
+.terminal-line::before {
+    content: '$';
+    color: var(--terminal-green);
+    position: absolute;
+    left: 0;
+}
