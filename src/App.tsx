@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { projects } from './data/projects'
 import { ProjectCard } from './components/ProjectCard'
 import { FeaturedProject } from './components/FeaturedProject'
-
+import { Terminal } from './components/Terminal'
 
 function App() {
   const featuredProject = projects.find(project => project.featured)
@@ -64,37 +64,42 @@ function App() {
       {/* Hero section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <div className="font-mono text-[var(--muted-text-color)] mb-2">
-              <span className="text-[var(--terminal-green)]">$ </span>whoami
+          <div className="flex flex-col lg:flex-row gap-10">
+            <div className="lg:w-1/2">
+              <div className="font-mono text-[var(--muted-text-color)] mb-2">
+                <span className="text-[var(--terminal-green)]">$ </span>whoami
+              </div>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-[var(--text-color)]">Hi, I'm </span>
+                <span className="text-[var(--primary-color)]">Arun Munaganti</span>
+              </h1>
+              <div className="font-mono text-[var(--muted-text-color)] mb-4">
+                <span className="text-[var(--terminal-green)]">$ </span>
+                {typedText}<span className="inline-block w-2 h-5 bg-[var(--primary-color)] ml-1 animate-pulse"></span>
+              </div>
+              <p className="text-lg md:text-xl mb-8">
+                Solutions Architect & Full Stack Developer with 6+ years of experience, specializing in
+                AWS, DevOps, and Blockchain technologies. Building scalable backend solutions and leading engineering teams.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="https://github.com/arunsai63"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[var(--primary-color)] text-[var(--background-color)] px-6 py-3 rounded font-bold hover:bg-[var(--secondary-color)] transition-colors text-center"
+                >
+                  <span className="mr-2">&#60;/&#62;</span> View My GitHub
+                </a>
+                <a
+                  href="#projects"
+                  className="bg-transparent border border-[var(--primary-color)] text-[var(--primary-color)] px-6 py-3 rounded font-bold hover:bg-[var(--primary-color)] hover:text-[var(--background-color)] transition-all text-center"
+                >
+                  <span className="mr-2">▶</span> Explore Projects
+                </a>
+              </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-[var(--text-color)]">Hi, I'm </span>
-              <span className="text-[var(--primary-color)]">Arun Munaganti</span>
-            </h1>
-            <div className="font-mono text-[var(--muted-text-color)] mb-4">
-              <span className="text-[var(--terminal-green)]">$ </span>
-              {typedText}<span className="inline-block w-2 h-5 bg-[var(--primary-color)] ml-1 animate-pulse"></span>
-            </div>
-            <p className="text-lg md:text-xl mb-8">
-              Solutions Architect & Full Stack Developer with 6+ years of experience, specializing in
-              AWS, DevOps, and Blockchain technologies. Building scalable backend solutions and leading engineering teams.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="https://github.com/arunsai63"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[var(--primary-color)] text-[var(--background-color)] px-6 py-3 rounded font-bold hover:bg-[var(--secondary-color)] transition-colors text-center"
-              >
-                <span className="mr-2">&#60;/&#62;</span> View My GitHub
-              </a>
-              <a
-                href="#projects"
-                className="bg-transparent border border-[var(--primary-color)] text-[var(--primary-color)] px-6 py-3 rounded font-bold hover:bg-[var(--primary-color)] hover:text-[var(--background-color)] transition-all text-center"
-              >
-                <span className="mr-2">▶</span> Explore Projects
-              </a>
+            <div className="lg:w-1/2 mt-8 lg:mt-0">
+              <Terminal />
             </div>
           </div>
         </div>
