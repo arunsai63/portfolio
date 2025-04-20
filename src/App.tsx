@@ -6,10 +6,10 @@ import { FeaturedProject } from './components/FeaturedProject'
 import { Terminal } from './components/Terminal'
 
 function App() {
-  const featuredProject = projects.find(project => project.featured)
+  const featuredProjects = projects.filter(project => project.featured)
   const otherProjects = projects.filter(project => !project.featured)
   const [typedText, setTypedText] = useState('')
-  const textToType = "Solutions Architect | Full Stack | AWS | DevOps | Blockchain"
+  const textToType = "Full Stack && AWS && DevOps && Blockchain"
 
   useEffect(() => {
     let index = 0
@@ -70,7 +70,7 @@ function App() {
                 <span className="text-[var(--terminal-green)]">$ </span>whoami
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-[var(--text-color)]">Hi, I'm </span>
+                <span className="text-[var(--text-color)]">Hi,I'm </span>
                 <span className="text-[var(--primary-color)]">Arun Munaganti</span>
               </h1>
               <div className="font-mono text-[var(--muted-text-color)] mb-4">
@@ -78,8 +78,9 @@ function App() {
                 {typedText}<span className="inline-block w-2 h-5 bg-[var(--primary-color)] ml-1 animate-pulse"></span>
               </div>
               <p className="text-lg md:text-xl mb-8">
-                Solutions Architect & Full Stack Developer with 6+ years of experience, specializing in
-                AWS, DevOps, and Blockchain technologies. Building scalable backend solutions and leading engineering teams.
+                Solutions Architect with 6+ years of experience.
+                <br />
+                Building scalable backend solutions and leading engineering teams.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -109,12 +110,12 @@ function App() {
       <section className="py-16 bg-[rgba(0,0,0,0.3)]" id="featured">
         <div className="container mx-auto px-4">
           <div className="font-mono text-[var(--muted-text-color)] mb-4">
-            <span className="text-[var(--terminal-green)]">$ </span>cat featured_project.json
+            <span className="text-[var(--terminal-green)]">$ </span>cat featured_projects.json
           </div>
           <h2 className="text-3xl font-bold mb-12 inline-block border-b-2 border-[var(--primary-color)] pb-2">
-            Featured Project
+            Featured Projects
           </h2>
-          {featuredProject && <FeaturedProject project={featuredProject} />}
+          {featuredProjects.map((project: any) => <FeaturedProject project={project} />)}
         </div>
       </section>
 
