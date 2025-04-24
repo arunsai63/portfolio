@@ -22,7 +22,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             </div>
             <div className="flex gap-4 mt-auto pt-4 border-t border-[var(--border-color)]">
                 <a
-                    href={project.githubUrl}
+                    href={project.githubUrl || ""}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[var(--primary-color)] hover:text-[var(--secondary-color)] transition-colors flex items-center"

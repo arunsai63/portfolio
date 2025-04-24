@@ -1,15 +1,23 @@
 // src/App.tsx
 import { useState, useEffect } from 'react'
-import { projects } from './data/projects'
+import { personalProjects, professionalProjects } from './data/projects'
 import { ProjectCard } from './components/ProjectCard'
 import { FeaturedProject } from './components/FeaturedProject'
+import { ProfessionalProject } from './components/ProfessionalProject'
 import { Terminal } from './components/Terminal'
+import { TechSkill } from './components/TechVisualizations'
 
-function App() {
-  const featuredProjects = projects.filter(project => project.featured)
-  const otherProjects = projects.filter(project => !project.featured)
+export default function App() {
+  const featuredPersonalProjects = personalProjects.filter(project => project.featured)
+  const otherPersonalProjects = personalProjects.filter(project => !project.featured)
+  const featuredProfessionalProjects = professionalProjects.filter(project => project.featured)
+  const otherProfessionalProjects = professionalProjects.filter(project => !project.featured)
+
   const [typedText, setTypedText] = useState('')
   const textToType = "Full Stack && AWS && DevOps && Blockchain"
+
+  const [activeProjectType, setActiveProjectType] = useState('professional') // 'professional' or 'personal'
+  const [isCommandVisible, setIsCommandVisible] = useState(false)
 
   useEffect(() => {
     let index = 0
@@ -18,6 +26,7 @@ function App() {
       index++
       if (index > textToType.length) {
         clearInterval(timer)
+        // setTimeout(() => setIsCommandVisible(true), 500)
       }
     }, 100)
 
@@ -62,7 +71,7 @@ function App() {
       </header>
 
       {/* Hero section */}
-      <section className="py-16 md:py-24">
+      <section className="py-4 md:py-24">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-10">
             <div className="lg:w-1/2">
@@ -70,7 +79,7 @@ function App() {
                 <span className="text-[var(--terminal-green)]">$ </span>whoami
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                <span className="text-[var(--text-color)]">Hi,I'm </span>
+                <span className="text-[var(--text-color)]">Hi, I'm </span>
                 <span className="text-[var(--primary-color)]">Arun Munaganti</span>
               </h1>
               <div className="font-mono text-[var(--muted-text-color)] mb-4">
@@ -98,6 +107,24 @@ function App() {
                   <span className="mr-2">▶</span> Explore Projects
                 </a>
               </div>
+
+              {isCommandVisible && (
+                <div className="mt-8 p-4 bg-[var(--card-background)] border border-[var(--border-color)] rounded-lg fade-in">
+                  <div className="font-mono text-[var(--muted-text-color)]">
+                    <span className="text-[var(--terminal-green)]">$ </span>
+                    <span className="typing-effect">cat /etc/skills.conf</span>
+                  </div>
+                  <pre className="mt-2 text-xs md:text-sm overflow-x-auto">
+                    {`{
+  "languages": ["JavaScript", "TypeScript", "Python", "Java", "Go"],
+  "cloud": ["AWS", "Azure", "GCP"],
+  "devops": ["Docker", "Kubernetes", "CI/CD", "Terraform"],
+  "databases": ["MongoDB", "PostgreSQL", "Redis", "DynamoDB"],
+  "frameworks": ["React", "Node.js", "Express", "Spring Boot"]
+}`}
+                  </pre>
+                </div>
+              )}
             </div>
             <div className="lg:w-1/2 mt-8 lg:mt-0">
               <Terminal />
@@ -106,35 +133,146 @@ function App() {
         </div>
       </section>
 
-      {/* Featured project section */}
-      <section className="py-16 bg-[rgba(0,0,0,0.3)]" id="featured">
+      {/* Projects section - No tabs, show all */}
+      <section className="py-4 bg-[rgba(0,0,0,0.3)]" id="projects">
         <div className="container mx-auto px-4">
           <div className="font-mono text-[var(--muted-text-color)] mb-4">
-            <span className="text-[var(--terminal-green)]">$ </span>cat featured_projects.json
+            <span className="text-[var(--terminal-green)]">$ </span>cd ./projects && ls -la
           </div>
-          <h2 className="text-3xl font-bold mb-12 inline-block border-b-2 border-[var(--primary-color)] pb-2">
-            Featured Projects
+          <h2 className="text-3xl font-bold mb-8 inline-block border-b-2 border-[var(--primary-color)] pb-2 glow-effect">
+            My Projects
           </h2>
-          {featuredProjects.map((project: any) => <FeaturedProject project={project} />)}
+
+          {/* Directory section with folder icons - visual only */}
+          <div className="mb-6 overflow-hidden rounded-lg border border-[var(--border-color)] bg-[var(--card-background)] w-full md:w-2/3 max-w-2xl">
+            <div className="flex">
+              <div className="px-4 py-2 font-mono text-lg flex-1 bg-[var(--primary-color)] text-[var(--background-color)]">
+                <span className="mr-2">📁</span> professional/
+              </div>
+              <div className="px-4 py-2 font-mono text-lg flex-1 bg-[var(--card-background)] text-[var(--muted-text-color)]">
+                <span className="mr-2">📁</span> personal/
+              </div>
+            </div>
+          </div>
+
+          {/* Professional Projects - ALWAYS VISIBLE */}
+          <div className="mb-20">
+            {/* Professional timeline */}
+            <div className="relative pb-12">
+              {featuredProfessionalProjects.map((project, index) => (
+                <div key={project.id} className="mb-16 relative timeline-container">
+                  {/* Timeline connector */}
+                  {index < featuredProfessionalProjects.length - 1 && (
+                    <div className="timeline-connector"></div>
+                  )}
+
+                  {/* Project dot */}
+                  <div className="timeline-dot"></div>
+
+                  {/* Project content */}
+                  <div className="ml-10">
+                    <ProfessionalProject project={project} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Other professional projects */}
+            {otherProfessionalProjects.length > 0 && (
+              <div>
+                <div className="font-mono text-[var(--muted-text-color)] mb-6 mt-12">
+                  <span className="text-[var(--terminal-green)]">$ </span>ls -la ./more_professional_projects/
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {otherProfessionalProjects.map(project => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Separator between professional and personal projects */}
+          <div className="border-t border-[var(--border-color)] w-full my-16 relative">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[rgba(0,0,0,0.3)] px-6 py-1">
+              <div className="font-mono text-[var(--muted-text-color)]">
+                <span className="text-[var(--terminal-green)]">$ </span>cd ../personal/
+              </div>
+            </div>
+          </div>
+
+          {/* Personal Projects Section - ALWAYS VISIBLE BELOW PROFESSIONAL */}
+          <div>
+            {/* Directory header for personal projects */}
+            <div className="mb-8 overflow-hidden rounded-lg border border-[var(--border-color)] bg-[var(--card-background)] w-full md:w-2/3 max-w-2xl"
+              style={{ display: 'none' }}>
+              <div className="px-8 py-4 font-mono text-xl bg-[var(--primary-color)] text-[var(--background-color)]">
+                <span className="mr-2">📁</span> personal/
+              </div>
+            </div>
+
+            {/* Featured personal projects */}
+            {featuredPersonalProjects.length > 0 && (
+              <div className="mb-16">
+                <div className="font-mono text-[var(--muted-text-color)] mb-6">
+                  <span className="text-[var(--terminal-green)]">$ </span>cat featured_projects.json
+                </div>
+                {featuredPersonalProjects.map((project) => (
+                  <FeaturedProject key={project.id} project={project} />
+                ))}
+              </div>
+            )}
+
+            {/* Other personal projects */}
+            {otherPersonalProjects.length > 0 && (
+              <div>
+                <div className="font-mono text-[var(--muted-text-color)] mb-6">
+                  <span className="text-[var(--terminal-green)]">$ </span>ls -la ./personal_projects/
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {otherPersonalProjects.map(project => (
+                    <ProjectCard key={project.id} project={project} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
-      {/* Other projects */}
-      <section className="py-16" id="projects">
-        <div className="container mx-auto px-4">
+      {/* Enhanced Tech Visualization section */}
+      <section className="py-16 bg-[rgba(0,0,0,0.3)]">
+        <div className="container mx-auto px-4 text-center">
           <div className="font-mono text-[var(--muted-text-color)] mb-4">
-            <span className="text-[var(--terminal-green)]">$ </span>ls -la ./projects/
+            <span className="text-[var(--terminal-green)]">$ </span>visualize --skills="development"
           </div>
-          <h2 className="text-3xl font-bold mb-12 inline-block border-b-2 border-[var(--primary-color)] pb-2">
-            My Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {otherProjects.map(project => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+          <h2 className="text-3xl font-bold mb-8 glow-effect inline-block">Tech Stack Visualization</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <TechSkill
+              category="Frontend"
+              skills={["React", "TypeScript", "HTML/CSS", "Tailwind", "Bootstrap"]}
+              animationType="code"
+            />
+            <TechSkill
+              category="Backend"
+              skills={["Node.js", "Python", "C# .Net", "Grpc", "Rest Api"]}
+              animationType="matrix"
+            />
+            <TechSkill
+              category="DevOps"
+              skills={["Docker", "Serverless", "CI/CD", "IaC", "Nginx"]}
+              animationType="pulse"
+            />
+            <TechSkill
+              category="Cloud"
+              skills={["AWS", "Azure", "Digital Ocean", "Firebase", "Supabase"]}
+              animationType="radar"
+            />
           </div>
         </div>
       </section>
+
 
       {/* Contact section */}
       <section className="py-16 bg-[rgba(0,0,0,0.3)]">
@@ -203,5 +341,3 @@ function App() {
     </div>
   )
 }
-
-export default App

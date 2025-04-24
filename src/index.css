@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-    --primary-color: #00ff00;
+    --primary-color: #00e100;
     --secondary-color: #31b831;
     --text-color: #e0e0e0;
     --background-color: #0a0a0a;
@@ -11,7 +11,7 @@
     --shadow-color: rgba(0, 255, 110, 0.5);
     --muted-text-color: #cccccc;
     --highlight-color: #444;
-    --terminal-green: #00ff00;
+    --terminal-green: #00e100;
 }
 
 body {
@@ -70,4 +70,264 @@ body {
     color: var(--terminal-green);
     position: absolute;
     left: 0;
+}
+
+/* Additional styles to add to your CSS file */
+
+/* Updated styles for the separator between project sections */
+.section-separator {
+    position: relative;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 4rem 0;
+    overflow: visible;
+}
+
+.section-separator::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    height: 5px;
+    width: 5%;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+.section-separator::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -2px;
+    height: 5px;
+    width: 5%;
+    background: linear-gradient(90deg, transparent, var(--primary-color));
+}
+
+.section-separator-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--background-color);
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+/* Project timeline enhancements */
+.timeline-dot {
+    box-shadow: 0 0 10px var(--primary-color);
+    z-index: 2;
+}
+
+.timeline-connector {
+    z-index: 1;
+}
+
+.timeline-container:hover .timeline-dot {
+    background-color: var(--secondary-color);
+    transform: translateX(-50%) scale(1.5);
+    transition: all 0.3s ease;
+}
+
+/* Project card hover effects */
+.project-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg,
+            var(--primary-color),
+            transparent,
+            var(--primary-color));
+    z-index: -1;
+    opacity: 0;
+    border-radius: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover::before {
+    opacity: 0.5;
+    animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Tech tags hover effect */
+.tech-tag {
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-tag::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.tech-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 255, 0, 0.3);
+}
+
+.tech-tag:hover::after {
+    width: 100%;
+}
+
+/* Terminal typing animations */
+.terminal-typing {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.terminal-typing::after {
+    content: '|';
+    position: absolute;
+    right: -4px;
+    color: var(--primary-color);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Project details section */
+.project-details {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.project-details::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--primary-color),
+            transparent);
+}
+
+.project-details::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--primary-color),
+            transparent);
+}
+
+
+/* animations */
+
+@keyframes radar-pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+@keyframes radar-sweep {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes matrixRainDrop {
+    0% {
+        top: -100%;
+    }
+
+    100% {
+        top: 120%;
+    }
+}
+
+@keyframes pulse1 {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes pulse2 {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes pulse3 {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
 }

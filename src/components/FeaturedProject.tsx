@@ -25,7 +25,7 @@ export const FeaturedProject = ({ project }: FeaturedProjectProps) => {
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4">
                         <a
-                            href={project.githubUrl}
+                            href={project.githubUrl || ""}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-[var(--primary-color)] text-[var(--background-color)] px-4 py-2 rounded font-bold hover:bg-[var(--secondary-color)] transition-colors text-center"
